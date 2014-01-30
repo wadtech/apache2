@@ -175,3 +175,7 @@ default['apache']['default_modules'] = %w[
 %w[log_config logio].each do |log_mod|
   default['apache']['default_modules'] << log_mod if %w[rhel fedora suse arch freebsd].include?(node['platform_family'])
 end
+
+# explicit lines to add to /etc/apache2/envvars
+# e.g. ['export PATH=$PATH']
+default['apache']['envvars']['lines'] = []
